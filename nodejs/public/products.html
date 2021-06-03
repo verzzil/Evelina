@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            $.get({
+                url: "http://localhost:8080/rest/products",
+                success: (data) => {
+                    data.forEach(function (item) {
+                        $("#products_list").append(
+                            `<li>
+<h3>
+Название: ${item.name}
+</h3>
+<span>Цена: ${item.price}$</span>
+</li> <hr>`
+                        );
+                    });
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<ul id="products_list">
+
+</ul>
+</body>
+</html>
